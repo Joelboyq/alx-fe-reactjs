@@ -21,15 +21,18 @@ function App() {
     );
 }
 
-import ProfilePage from './ProfilePage';
+import UserProfile from './components/UserProfile';
 import UserContext from './UserContext';
 
 function App() {
-    const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+    const userData = { name: "Jane Doe", age: 25, bio: "Loves coding and hiking." };
 
     return (
         <UserContext.Provider value={userData}>
-            <ProfilePage />
+            <div>
+                <h1>User Profile</h1>
+                <UserProfile />
+            </div>
         </UserContext.Provider>
     );
 }
