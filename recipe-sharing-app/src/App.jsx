@@ -8,11 +8,19 @@ import AddRecipeForm from './components/AddRecipeForm';
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<RecipeList />} />
-        <Route path="/add" element={<AddRecipeForm />} />
-        <Route path="/recipe/:id" element={<RecipeDetails />} />
-      </Routes>
+      <div>
+        <h1>Recipe Sharing App</h1>
+        <Routes>
+          {/* Route for the homepage displaying the list of recipes */}
+          <Route path="/" element={<RecipeList />} />
+          
+          {/* Route for adding a new recipe */}
+          <Route path="/add" element={<AddRecipeForm />} />
+          
+          {/* Route for viewing the details of a specific recipe */}
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+      </div>
     </Router>
   );
 };
