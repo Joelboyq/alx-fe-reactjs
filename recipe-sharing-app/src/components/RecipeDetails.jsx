@@ -1,20 +1,27 @@
 import { useRecipeStore } from './store/recipeStore';
-import { useNavigate } from 'react-router-dom';
+import EditRecipeForm from './EditRecipeForm';
+import DeleteRecipeButton from './DeleteRecipeButton';
+import { useParams } from 'react-router-dom';
 
-const DeleteRecipeButton = ({ recipeId }) => {
-  const deleteRecipe = useRecipeStore((state) => state.deleteRecipe);
-  const navigate = useNavigate();
+const RecipeDetails = () => {
+  const { id } = useParams(); // Retrieve the recipe ID from the URL
+  const recipe = useRecipeStore((state) =>
+    state.recipes.find((recipe) => recipe.id === parseInt(id)) // Match ID as an integer
+  );
 
-  const handleDelete = () => {
-    deleteRecipe(recipeId);
-    navigate('/'); // Redirect to the homepage or recipe list after deletion
-  };
+  // If the recipe doesn't exist, display an error message
+  if (!recipe) {
+    return <p>Recipe not found. It may have been deleted.</p>;
+  }
 
   return (
-    <button onClick={handleDelete}>
-      Delete Recipe
-    </button>
+    <div>
+      <h1>{recipe.title}</h1>
+      <p>{recipe.description}</p>
+      <EditRecipeForm recipe={recipe} />
+      <DeleteRecipeButton recipeId={recipe.id} />
+    </div>
   );
 };
 
-export default DeleteRecipeButton;
+export default RecipeDetails;
