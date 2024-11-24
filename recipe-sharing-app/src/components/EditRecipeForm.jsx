@@ -6,9 +6,14 @@ const EditRecipeForm = ({ recipe }) => {
   const [title, setTitle] = useState(recipe.title);
   const [description, setDescription] = useState(recipe.description);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateRecipe({ ...recipe, title, description });
+  const handleSubmit = (event) => {
+    // Prevent default form submission behavior
+    event.preventDefault();
+
+    // Update the recipe using Zustand store
+    if (title && description) {
+      updateRecipe({ ...recipe, title, description });
+    }
   };
 
   return (
