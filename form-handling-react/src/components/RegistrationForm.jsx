@@ -21,12 +21,24 @@ const [password, setPassword] = useState("");
   };  
 
   const validate = () => {
+    const { username, email, password } = formData;
     const newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required.";
-    if (!formData.email) newErrors.email = "Email is required.";
-    if (!formData.password) newErrors.password = "Password is required.";
+  
+    if (!username) {
+      if (!newErrors.username) newErrors.username = "Username is required.";
+    }
+  
+    if (!email) {
+      if (!newErrors.email) newErrors.email = "Email is required.";
+    }
+  
+    if (!password) {
+      if (!newErrors.password) newErrors.password = "Password is required.";
+    }
+  
     return newErrors;
-  };  
+  };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
