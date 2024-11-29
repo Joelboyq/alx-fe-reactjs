@@ -7,12 +7,18 @@ const RegistrationForm = () => {
     password: "",
   });
 
+const [username, setUsername] = useState("");
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    if (name === "username") setUsername(value);
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
+  };  
 
   const validate = () => {
     const newErrors = {};
@@ -38,10 +44,10 @@ const RegistrationForm = () => {
       <div>
         <label>Username</label>
         <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
+         type="text"
+         name="username"
+         value={username} // Uses the username state
+         onChange={handleChange}
         />
         {errors.username && <span>{errors.username}</span>}
       </div>
@@ -49,20 +55,20 @@ const RegistrationForm = () => {
         <label>Email</label>
         <input
           type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-        />
+         name="email"
+         value={email} // Uses the email state
+         onChange={handleChange}
+         />
         {errors.email && <span>{errors.email}</span>}
       </div>
       <div>
         <label>Password</label>
         <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+         type="password"
+         name="password"
+         value={password} // Uses the password state
+         onChange={handleChange}
+         />
         {errors.password && <span>{errors.password}</span>}
       </div>
       <button type="submit">Register</button>
