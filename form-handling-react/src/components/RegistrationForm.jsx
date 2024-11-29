@@ -26,7 +26,7 @@ const [password, setPassword] = useState("");
     if (!formData.email) newErrors.email = "Email is required.";
     if (!formData.password) newErrors.password = "Password is required.";
     return newErrors;
-  };
+  };  
 
   const handleSubmit = (e) => {
     e.preventDefault();
