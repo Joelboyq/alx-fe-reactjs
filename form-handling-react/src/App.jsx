@@ -2,6 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import React from "react";
+import RegistrationForm from "./components/RegistrationForm";
+import FormikForm from "./components/FormikForm";
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,6 +29,12 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
+      <div>
+      <h1>Controlled Components Form</h1>
+      <RegistrationForm />
+      <h1>Formik Form</h1>
+      <FormikForm />
+    </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
