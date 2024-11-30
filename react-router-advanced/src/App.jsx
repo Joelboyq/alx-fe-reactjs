@@ -30,7 +30,16 @@ function App() {
     );
   };
   
+  const isAuthenticated = false;
 
+  <Route
+    path="/profile/*"
+    element={
+      <ProtectedRoute isAuthenticated={isAuthenticated}>
+        <Profile />
+      </ProtectedRoute>
+    }
+  />
 
   const [count, setCount] = useState(0)
 
