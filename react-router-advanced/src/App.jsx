@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Profile from './pages/Profile';
 import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function App() {
@@ -27,8 +28,18 @@ function App() {
           </Routes>
         </div>
       </Router>
+      
     );
   };
+  
+  <Route
+  path="/profile/*"
+  element={
+    <ProtectedRoute>
+      <Profile />
+    </ProtectedRoute>
+  }
+/>
   
   const isAuthenticated = false;
 
