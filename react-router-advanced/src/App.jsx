@@ -7,21 +7,29 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Profile from './pages/Profile';
+import Login from "./pages/Login";
+
 
 function App() {
 
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile/*" element={<Profile />} />
-      </Routes>
-    </Router>
-  );
-};
+  const App = () => {
+    return (
+      <Router>
+        <div>
+          <h1>Advanced Routing with React Router</h1>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile/*" element={<Profile />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  };
+  
 
 
   const [count, setCount] = useState(0)
