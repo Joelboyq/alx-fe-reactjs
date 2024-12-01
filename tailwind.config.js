@@ -1,21 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Scans these files for class usage
+    "./src/**/*.{js,jsx,ts,tsx}", // Specify paths to all files using Tailwind classes
   ],
   theme: {
-    extend: {}, // Use this to customize the default Tailwind theme
+    extend: {}, // Customize the default theme if needed
   },
-  plugins: [], // Add custom plugins here
+  plugins: [], // Add any required plugins
 
   darkMode: 'class', // Use 'class' to toggle dark mode with a class
-  
-  theme: {
-    extend: {
-      backgroundColor: ['active'], // Enables the 'active' variant for background color
-    },
-  },
-  
+   
   
 };
-
