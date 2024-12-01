@@ -1,14 +1,22 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}", // Specify paths to all files using Tailwind classes
+  purge: [
+    "./src/**/*.{js,jsx,ts,tsx}", // Paths to all template files
+    "./public/index.html",       // Include public HTML files
   ],
+  darkMode: 'class', // Can be 'media' or 'class'
   theme: {
-    extend: {}, // Customize the default theme if needed
+    extend: {
+      colors: {
+        customBlue: '#1E40AF', // Example of extending the theme
+      },
+    },
   },
-  plugins: [], // Add any required plugins
-
-  darkMode: 'class', // Use 'class' to toggle dark mode with a class
-   
-  
+  variants: {
+    extend: {
+      backgroundColor: ['active'], // Enable 'active' variant for background color
+      textColor: ['focus-visible'], // Enable 'focus-visible' variant for text color
+    },
+  },
+  plugins: [],
 };
+
