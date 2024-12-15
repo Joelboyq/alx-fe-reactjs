@@ -6,6 +6,14 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  function App() {
+    return (
+      <div className="text-blue-500">
+        Tailwind CSS is working!
+      </div>
+    );
+  }
+
   return (
     <>
       <div>
