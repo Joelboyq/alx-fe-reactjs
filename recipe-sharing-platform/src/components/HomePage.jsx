@@ -10,6 +10,20 @@ const HomePage = () => {
       .then((data) => setRecipes(data))
       .catch((error) => console.error("Error loading data:", error));
   }, []);
+    
+  <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+  <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <img
+      src={recipe.image}
+      alt={recipe.title}
+      className="rounded-t-lg w-full h-40 object-cover"
+    />
+    <div className="p-4">
+      <h2 className="text-xl font-semibold">{recipe.title}</h2>
+      <p className="text-gray-600 mt-2">{recipe.summary}</p>
+    </div>
+  </div>
+</Link>
 
   return (
     <div className="p-4">
