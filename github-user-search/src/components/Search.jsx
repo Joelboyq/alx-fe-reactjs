@@ -33,6 +33,10 @@ const Search = () => {
     }
   };
 
+  <div className="bg-blue-500 text-white p-4 rounded">
+  Tailwind CSS is active!
+</div>
+
   return (
     <div className="p-6 max-w-lg mx-auto">
       <form
