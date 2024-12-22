@@ -14,17 +14,13 @@ const Search = () => {
     setLoading(true);
     setError(false);
     setResults([]);
-
-    const query = [
-      username && `user:${username}`,
-      location && `location:${location}`,
-      minRepos && `repos:>=${minRepos}`,
-    ]
-      .filter(Boolean)
-      .join("+");
-
+  
     try {
-      const data = await fetchAdvancedSearchResults(query);
+      const data = await fetchAdvancedSearchResults({
+        username,
+        location,
+        minRepos,
+      });
       setResults(data.items || []);
     } catch {
       setError(true);
