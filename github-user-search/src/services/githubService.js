@@ -7,6 +7,11 @@ import axios from "axios";
  * @param {string} minRepos - Minimum number of public repositories (optional).
  * @returns {Promise<Object>} - The response data containing search results.
  */
+const fetchUserData = async (username) => {
+    const response = await axios.get(`https://api.github.com/users/${username}`);
+    return response.data;
+  };
+  
 const fetchAdvancedSearchResults = async ({ username, location, minRepos }) => {
   // Construct query string
   const queryParts = [
